@@ -89,6 +89,7 @@ const RevLista = (props) => {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input onClick={()=>handleRemoveTarea(tar.id)} key={tar.id} value="Eliminar Tarea"></input>
                 </div>)
                 //leer sobre "parametros adicionales callbacks" en react que es el envio de parametros en eventos
+                //hello
             }
         </div>
         
