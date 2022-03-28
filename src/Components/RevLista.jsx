@@ -46,6 +46,12 @@ const RevLista = (props) => {
  }
   
   };
+  const handleRemoveTarea = (id) => {
+    const newTareas = tareas.filter((elemTareas) => elemTareas.id !== id)
+            setTareas(newTareas)
+    
+  
+  }
   //onSubmit
   const onSubmit = (e) => {
     e.preventDefault();
@@ -65,19 +71,22 @@ const RevLista = (props) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="tarea">Agrega una Tarea</label>
+        <div className="formgroup">
+          <label htmlFor="tarea">Agrega una Tarea &nbsp;&nbsp; </label>
           <input type="text" name="tarea" onChange={onChange}></input>
         </div>
+        <div className="insertaTarea">
         <input type="submit" value="Agregar Tarea"></input>
+        </div>
+        
         <div>
             {
                 
                 tareas.map((tar)=>
-                <div className='tareas'key={tar.id}>
-                {console.log(tar,"tar")}
-                <p> {tar.tarea} </p>
+                <div className='tareass' key={tar.id}>
+                {!tar.tareaLista?<p> {tar.tarea} </p>: <s>{tar.tarea}</s>}&nbsp;&nbsp;
                 <input type="checkbox" name="tareaLista"   id={tar.id} value={tar.tareaLista} onChange={(e) => onChange(e)}/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input onClick={()=>handleRemoveTarea(tar.id)} key={tar.id} value="Eliminar Tarea"></input>
                 </div>)
                 //leer sobre "parametros adicionales callbacks" en react que es el envio de parametros en eventos
             }
